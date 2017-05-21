@@ -19,7 +19,7 @@ def process_line(line):
     length.pop()
     end = [int(s) + int(l) for s, l in zip(start, length)]
     uniq_binID = [ binID + '::' + str(i) for i in list(range(len(start)))]
-    exons = zip([chrom]*len(start), start, end, [binID]*len(start), uniq_binID) # chrom start end binID uniq_binID
+    exons = list(zip([chrom]*len(start), start, end, [binID]*len(start), uniq_binID)) # chrom start end binID uniq_binID
     assert len(start) == int(gene[9])
     return exons
 

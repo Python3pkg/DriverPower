@@ -49,7 +49,7 @@ def get_eigen(mut, path='/u/sshuai/sshuai/func_score/eigen/v1.1', coding=True):
         check_file = np.array([os.path.isfile(f) for f in file_names])
         assert np.sum(check_file) == 22, 'Cannot find eigen noncoding in {}'.format(", ".join(file_names[~check_file]))
         # open 22 eigen files
-        file_dict = {k: tabix.open(v) for k, v in file_dict.items()}
+        file_dict = {k: tabix.open(v) for k, v in list(file_dict.items())}
         # row apply
         func = lambda x: query_eigen_SNP(file_dict[str(x[0])], x[0], x[1], x[2], x[4], x[5])
         eigen['fscore'] = eigen.apply(func, axis=1)

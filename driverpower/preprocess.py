@@ -186,8 +186,8 @@ def preprocess(cg_test, ct_test, X_test, cg_train,
     ybinom_train = get_response(ct_train, cg_train)
     ybinom_test  = get_response(ct_test, cg_test)
     # filter
-    X_test, ybinom_test, X_train, ybinom_train, gnames, grecur = filter(ct_train, ct_test, cg_train, cg_test,
-    X_train, X_test, ybinom_train, ybinom_test, len_threshold, recur_threshold)
+    X_test, ybinom_test, X_train, ybinom_train, gnames, grecur = list(filter(ct_train, ct_test, cg_train, cg_test,
+    X_train, X_test, ybinom_train, ybinom_test, len_threshold, recur_threshold))
     # Scale
     if scaler_type != 'none':
         X_train, X_test = scaling(X_train, X_test, scaler_type)

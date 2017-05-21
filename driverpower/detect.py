@@ -172,7 +172,7 @@ def detect(mut_path, callable_path, testFile_path, trainH5_path,
         binIDs = pd.read_table(bin_path, sep='\t', header=None,\
                                names=bed_cnames, usecols=['binID'])
         binIDs = binIDs.binID.unique()
-        print('===== Test Set [{}/{}]: {} (n={}) ====='.format(curr_set, nset, name, binIDs.shape[0]))
+        print(('===== Test Set [{}/{}]: {} (n={}) ====='.format(curr_set, nset, name, binIDs.shape[0])))
         curr_set += 1
         # result table
         result = pd.DataFrame(index=binIDs, columns=['length', 'nMut', 'nSample'])
@@ -219,7 +219,7 @@ def detect(mut_path, callable_path, testFile_path, trainH5_path,
                 mut = load_func_scores(func_conf_path, to_retrived, mut)
             # bin level functional scores
             fscores = calc_bin_fscore(mut, func_cols, agg_method)
-            for ix, score in fscores.iteritems():
+            for ix, score in fscores.items():
                 result[ix] = score
             for fcol in func_tuples:
                 pvals, qvals = func_adj_new(result, fcol, ndonor, use_gmean)

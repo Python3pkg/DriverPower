@@ -16,7 +16,7 @@ threshold = 1111 * cutoff
 
 for line in fileinput.input():
     if 'fixedStep' in line: # info row
-        print(line.strip())
+        print((line.strip()))
     else:
-        print(1 if int(line.strip()) >= threshold else 0)
+        print((1 if int(line.strip()) >= threshold else 0))
 

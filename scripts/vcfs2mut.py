@@ -55,12 +55,12 @@ def process_vcf(path, sid):
                 sys.stderr.write('ERROR: unrecognized variant {}'.format(mut))
                 sys.exit(1)
             dp_mut = [chrom, str(start), str(end), mut_type, ref, alt, sid]
-            print("\t".join(dp_mut))
+            print(("\t".join(dp_mut)))
     return Ncomma
 
 if __name__ == '__main__':
     with open(sys.argv[1]) as vcfs:
-        print("\t".join(['chrom', 'start', 'end', 'type', 'ref', 'alt', 'sid']))
+        print(("\t".join(['chrom', 'start', 'end', 'type', 'ref', 'alt', 'sid'])))
         Ncomma = 0
         for row in vcfs:
             if row[0] == '#': continue

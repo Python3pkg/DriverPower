@@ -25,7 +25,7 @@ def main():
     # process mut
     mut = pd.read_table(mut_path, sep='\t', header=None, usecols=col_idx,
                         dtype={col_idx[0]: str, col_idx[1]: np.int})
-    print("Input {} mutations".format(mut.shape[0]))
+    print(("Input {} mutations".format(mut.shape[0])))
     # Extract based on col_idx
     mut = mut.loc[:,col_idx]
     mut.columns = ['chrom', 'pos', 'ref', 'alt', 'sid']
@@ -94,7 +94,7 @@ def main():
     # mut = pd.read_table(out_mut, sep='\t', header=None)
     mut = pd.read_table(intersect2.stdout, sep='\t', header=None)
     # Add a header
-    print("Output {} mutations that intersect bins and are callable".format(mut.shape[0]))
+    print(("Output {} mutations that intersect bins and are callable".format(mut.shape[0])))
     mut.columns = ('chrom', 'start', 'end', 'type', 'ref', 'alt', 'sid',
                   'chrom_bin', 'start_bin', 'end_bin', 'binID')
     ct = mut.pivot_table(index=['binID', 'sid'], values=['chrom'], aggfunc=len)

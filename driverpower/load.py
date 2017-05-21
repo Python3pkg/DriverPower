@@ -307,7 +307,7 @@ def load_hdf5(h5_path, usefeatures=None):
     '''
     store = pd.HDFStore(h5_path)
     # access version number
-    if '/meta' in store.keys():
+    if '/meta' in list(store.keys()):
         h5_version = store['/meta']['version']
     else:
         h5_version = 'v0'

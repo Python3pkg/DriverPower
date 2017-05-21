@@ -173,7 +173,7 @@ def get_args():
         parser.print_help()
         parser.exit(1)
     if args.version:
-        print("DriverPower", __version__)
+        print(("DriverPower", __version__))
         sys.exit(0)
     # check for preprocess
     if args.subcommand == 'preprocess':

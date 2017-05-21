@@ -14,7 +14,7 @@ def main():
 	files = os.listdir(wkdir)
 	res = pd.DataFrame()
 	for file in files:
-		print("Processing", file)
+		print(("Processing", file))
 		tb = pd.read_table(os.path.join(wkdir, file), sep='\t', header=0)
 		# ignore NA in p-value
 		if tb.iloc[:,col_p].isnull().sum() > 0:
@@ -30,7 +30,7 @@ def main():
 		tb = tb.loc[:, (tb.columns.values[col_id],
 			tb.columns.values[col_p], 'q', 'method', 'tumor')]
 		tb.columns = ('id', 'p', 'q', 'method', 'tumor')
-		print("{} sig. bins".format(tb.shape[0]))
+		print(("{} sig. bins".format(tb.shape[0])))
 		# append res
 		res = res.append(tb, ignore_index=True)
 	# return res

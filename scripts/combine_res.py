@@ -53,7 +53,7 @@ def tune_cutoff(res, cutoff, N):
     # use trimmed fscore (nMut>0)
     res.index.name = 'element_ID'
     threshold = res.fscore[res.nMut>0].fillna(0).quantile(cutoff/100)
-    print('threshold:', threshold)
+    print(('threshold:', threshold))
     res['MuAdj'] = res.Mu * threshold / res.fscore
     res['Pval'] = [binom_test(x, n, p, 'greater') if p<1 else 1 for x, n, p in zip(res.nMutSample, res.Length*N, res.MuAdj)]
     # set NA
